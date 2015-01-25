@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            name="Dreamcast Project Editor"
+            extensions="dpe"
+            icon="icons/dream_cpp_project.gif"
+            contributorClass="dreamdev.editors.DreamProjectEditorContributor"
+            class="dreamdev.editors.DreamProjectEditor"
+            id="dreamdev.editors.DreamProjectEditor">
+      </editor>
+   </extension>
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <category
+            name="Dreamdev"
+            id="dreamdev">
+      </category>
+      <wizard
+            category="dreamdev"
+            class="dreamdev.wizards.DreamdevWizard"
+            icon="icons/dream_cpp_project.gif"
+            id="dreamdev.wizards.DreamdevWizard"
+            name="Dreamcast C/C++ Project"
+            project="true">
+      </wizard>
+   </extension>
+
+</plugin>
