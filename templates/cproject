@@ -32,10 +32,10 @@
 									<listOptionValue builtIn="false" value="_arch_dreamcast"/>
 									<listOptionValue builtIn="false" value="_arch_sub_pristine"/>
 								</option>
-								<option defaultValue="gnu.c.optimization.level.none" id="gnu.c.compiler.option.optimization.level.852131947" name="Optimization Level" superClass="gnu.c.compiler.option.optimization.level" useByScannerDiscovery="false" value="gnu.c.optimization.level.none" valueType="enumerated"/>
+								<option defaultValue="gnu.c.optimization.level.none" id="gnu.c.compiler.option.optimization.level.852131947" name="Optimization Level" superClass="gnu.c.compiler.option.optimization.level" useByScannerDiscovery="false" value="gnu.c.optimization.level.more" valueType="enumerated"/>
 								<option id="gnu.c.compiler.option.debugging.level.383616287" name="Debug Level" superClass="gnu.c.compiler.option.debugging.level" useByScannerDiscovery="false" value="gnu.c.debugging.level.default" valueType="enumerated"/>
 								<option id="gnu.c.compiler.option.dialect.std.418061681" name="Language standard" superClass="gnu.c.compiler.option.dialect.std" useByScannerDiscovery="true" value="gnu.c.compiler.dialect.c99" valueType="enumerated"/>
-								<option id="gnu.c.compiler.option.misc.other.1711897206" name="Other flags" superClass="gnu.c.compiler.option.misc.other" useByScannerDiscovery="false" value="-fomit-frame-pointer -c -fmessage-length=0 -ml -m4-single-only -ffunction-sections -fdata-sections" valueType="string"/>
+								<option id="gnu.c.compiler.option.misc.other.1711897206" name="Other flags" superClass="gnu.c.compiler.option.misc.other" useByScannerDiscovery="false" value="-fomit-frame-pointer -c -fmessage-length=0 -ml -m4-single-only -ffunction-sections -fdata-sections -fno-strict-aliasing -fno-builtin" valueType="string"/>
 								<option id="gnu.c.compiler.option.misc.verbose.468684536" name="Verbose (-v)" superClass="gnu.c.compiler.option.misc.verbose" useByScannerDiscovery="false" value="true" valueType="boolean"/>
 								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.909820116" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
 							</tool>
@@ -50,26 +50,22 @@
 									<listOptionValue builtIn="false" value="_arch_dreamcast"/>
 									<listOptionValue builtIn="false" value="_arch_sub_pristine"/>
 								</option>
-								<option id="gnu.cpp.compiler.option.optimization.level.1285554275" name="Optimization Level" superClass="gnu.cpp.compiler.option.optimization.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.optimization.level.none" valueType="enumerated"/>
+								<option id="gnu.cpp.compiler.option.optimization.level.1285554275" name="Optimization Level" superClass="gnu.cpp.compiler.option.optimization.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.optimization.level.more" valueType="enumerated"/>
 								<option id="gnu.cpp.compiler.option.debugging.level.401420256" name="Debug Level" superClass="gnu.cpp.compiler.option.debugging.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.debugging.level.default" valueType="enumerated"/>
 								<option id="gnu.cpp.compiler.option.dialect.std.407089962" name="Language standard" superClass="gnu.cpp.compiler.option.dialect.std" useByScannerDiscovery="true" value="gnu.cpp.compiler.dialect.c++98" valueType="enumerated"/>
-								<option id="gnu.cpp.compiler.option.other.other.1105619946" name="Other flags" superClass="gnu.cpp.compiler.option.other.other" useByScannerDiscovery="false" value="-c -fmessage-length=0 -c -fno-operator-names -fno-rtti -fno-exceptions" valueType="string"/>
+								<option id="gnu.cpp.compiler.option.other.other.1105619946" name="Other flags" superClass="gnu.cpp.compiler.option.other.other" useByScannerDiscovery="false" value="-c -fmessage-length=0 -fno-operator-names -fno-rtti -fno-exceptions" valueType="string"/>
 								<option id="gnu.cpp.compiler.option.other.verbose.1830178748" name="Verbose (-v)" superClass="gnu.cpp.compiler.option.other.verbose" useByScannerDiscovery="false" value="true" valueType="boolean"/>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.1604145257" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.cross.c.linker.2070414775" name="Dreamcast GCC Linker" superClass="cdt.managedbuild.tool.gnu.cross.c.linker"/>
-							<tool command="${GCC_BASE}/sh-elf/bin/sh-elf-g++" commandLinePattern="${COMMAND} ${FLAGS} ${OUTPUT_FLAG} ${OUTPUT_PREFIX}${OUTPUT} -Wl,--start-group ${INPUTS} -Wl,--end-group -Wl,romdisk" errorParsers="org.eclipse.cdt.core.GLDErrorParser" id="cdt.managedbuild.tool.gnu.cross.cpp.linker.2078049867" name="Dreamcast G++ Linker" superClass="cdt.managedbuild.tool.gnu.cross.cpp.linker">
-								<option id="gnu.cpp.link.option.libs.830405580" name="Libraries (-l)" superClass="gnu.cpp.link.option.libs" valueType="libs">
-									<listOptionValue builtIn="false" value="c"/>
-									<listOptionValue builtIn="false" value="gcc"/>
-									<listOptionValue builtIn="false" value="kallisti"/>
-								</option>
+							<tool command="${GCC_BASE}/sh-elf/bin/sh-elf-g++" commandLinePattern="${COMMAND} ${FLAGS} ${OUTPUT_FLAG} ${OUTPUT_PREFIX}${OUTPUT} ${INPUTS} -Wl,--start-group -lkallisti -lc -lgcc -Wl,--end-group -Wl,romdisk" errorParsers="org.eclipse.cdt.core.GLDErrorParser" id="cdt.managedbuild.tool.gnu.cross.cpp.linker.2078049867" name="Dreamcast G++ Linker" superClass="cdt.managedbuild.tool.gnu.cross.cpp.linker">
+								<option id="gnu.cpp.link.option.libs.830405580" name="Libraries (-l)" superClass="gnu.cpp.link.option.libs"/>
 								<option id="gnu.cpp.link.option.paths.1823657558" name="Library search path (-L)" superClass="gnu.cpp.link.option.paths" valueType="libPaths">
 									<listOptionValue builtIn="false" value="${KOS_BASE}/lib/dreamcast"/>
 									<listOptionValue builtIn="false" value="${KOS_BASE}/addons/lib/dreamcast"/>
 								</option>
 								<option id="gnu.cpp.link.option.nodeflibs.591678615" name="Do not use default libraries (-nodefaultlibs)" superClass="gnu.cpp.link.option.nodeflibs" value="true" valueType="boolean"/>
-								<option id="gnu.cpp.link.option.flags.731805649" name="Linker flags" superClass="gnu.cpp.link.option.flags" value="-Wl,-T${KOS_BASE}/utils/ldscripts/shlelf.xc -ml -m4-single-only -Wl,-Ttext=0x8c010000 -Wl,--gc-sections -v" valueType="string"/>
+								<option id="gnu.cpp.link.option.flags.731805649" name="Linker flags" superClass="gnu.cpp.link.option.flags" value="-Wl,--gc-sections -Wl,-T${KOS_BASE}/utils/ldscripts/shlelf.xc -ml -m4-single-only -Wl,-Ttext=0x8c010000 -v" valueType="string"/>
 								<option id="gnu.cpp.link.option.shared.1462660489" name="Shared (-shared)" superClass="gnu.cpp.link.option.shared" value="false" valueType="boolean"/>
 								<option id="gnu.cpp.link.option.userobjs.2057166560" name="Other objects" superClass="gnu.cpp.link.option.userobjs"/>
 								<option id="gnu.cpp.link.option.nostdlibs.130029565" name="No startup or default libs (-nostdlib)" superClass="gnu.cpp.link.option.nostdlibs" value="false" valueType="boolean"/>
@@ -123,14 +119,14 @@
 									<listOptionValue builtIn="false" value="&quot;${KOS_BASE}/include&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${KOS_BASE}/kernel/arch/dreamcast/include&quot;"/>
 								</option>
-								<option defaultValue="gnu.c.optimization.level.most" id="gnu.c.compiler.option.optimization.level.1468304944" name="Optimization Level" superClass="gnu.c.compiler.option.optimization.level" useByScannerDiscovery="false" valueType="enumerated"/>
+								<option defaultValue="gnu.c.optimization.level.most" id="gnu.c.compiler.option.optimization.level.1468304944" name="Optimization Level" superClass="gnu.c.compiler.option.optimization.level" useByScannerDiscovery="false" value="gnu.c.optimization.level.more" valueType="enumerated"/>
 								<option id="gnu.c.compiler.option.debugging.level.186689548" name="Debug Level" superClass="gnu.c.compiler.option.debugging.level" useByScannerDiscovery="false" value="gnu.c.debugging.level.default" valueType="enumerated"/>
 								<option id="gnu.c.compiler.option.dialect.std.2061509189" name="Language standard" superClass="gnu.c.compiler.option.dialect.std" useByScannerDiscovery="true" value="gnu.c.compiler.dialect.c99" valueType="enumerated"/>
 								<option id="gnu.c.compiler.option.preprocessor.def.symbols.106985662" name="Defined symbols (-D)" superClass="gnu.c.compiler.option.preprocessor.def.symbols" useByScannerDiscovery="false" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="_arch_dreamcast"/>
 									<listOptionValue builtIn="false" value="_arch_sub_pristine"/>
 								</option>
-								<option id="gnu.c.compiler.option.misc.other.2084481611" name="Other flags" superClass="gnu.c.compiler.option.misc.other" useByScannerDiscovery="false" value="-fomit-frame-pointer -c -fmessage-length=0 -ml -m4-single-only -ffunction-sections -fdata-sections" valueType="string"/>
+								<option id="gnu.c.compiler.option.misc.other.2084481611" name="Other flags" superClass="gnu.c.compiler.option.misc.other" useByScannerDiscovery="false" value="-fomit-frame-pointer -c -fmessage-length=0 -ml -m4-single-only -ffunction-sections -fdata-sections -fno-strict-aliasing -fno-builtin" valueType="string"/>
 								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1486538592" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
 							</tool>
 							<tool command="${GCC_BASE}/sh-elf/bin/sh-elf-g++" commandLinePattern="${COMMAND} ${FLAGS} ${OUTPUT_FLAG} ${OUTPUT_PREFIX}${OUTPUT} ${INPUTS}" errorParsers="org.eclipse.cdt.core.GCCErrorParser" id="cdt.managedbuild.tool.gnu.cross.cpp.compiler.509852774" name="Dreamcast G++ Compiler" superClass="cdt.managedbuild.tool.gnu.cross.cpp.compiler">
@@ -140,29 +136,25 @@
 									<listOptionValue builtIn="false" value="&quot;${KOS_BASE}/include&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${KOS_BASE}/kernel/arch/dreamcast/include&quot;"/>
 								</option>
-								<option id="gnu.cpp.compiler.option.optimization.level.1465589577" name="Optimization Level" superClass="gnu.cpp.compiler.option.optimization.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.optimization.level.most" valueType="enumerated"/>
+								<option id="gnu.cpp.compiler.option.optimization.level.1465589577" name="Optimization Level" superClass="gnu.cpp.compiler.option.optimization.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.optimization.level.more" valueType="enumerated"/>
 								<option id="gnu.cpp.compiler.option.debugging.level.267407883" name="Debug Level" superClass="gnu.cpp.compiler.option.debugging.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.debugging.level.default" valueType="enumerated"/>
 								<option id="gnu.cpp.compiler.option.dialect.std.1553214422" name="Language standard" superClass="gnu.cpp.compiler.option.dialect.std" useByScannerDiscovery="true" value="gnu.cpp.compiler.dialect.c++98" valueType="enumerated"/>
 								<option id="gnu.cpp.compiler.option.preprocessor.def.177841257" name="Defined symbols (-D)" superClass="gnu.cpp.compiler.option.preprocessor.def" useByScannerDiscovery="false" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="_arch_dreamcast"/>
 									<listOptionValue builtIn="false" value="_arch_sub_pristine"/>
 								</option>
-								<option id="gnu.cpp.compiler.option.other.other.1319641257" name="Other flags" superClass="gnu.cpp.compiler.option.other.other" useByScannerDiscovery="false" value="-c -fmessage-length=0 -c -fno-operator-names -fno-rtti -fno-exceptions" valueType="string"/>
+								<option id="gnu.cpp.compiler.option.other.other.1319641257" name="Other flags" superClass="gnu.cpp.compiler.option.other.other" useByScannerDiscovery="false" value="-c -fmessage-length=0 -fno-operator-names -fno-rtti -fno-exceptions" valueType="string"/>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.140411481" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.cross.c.linker.1728324142" name="Dreamcast GCC Linker" superClass="cdt.managedbuild.tool.gnu.cross.c.linker"/>
-							<tool command="${GCC_BASE}/sh-elf/bin/sh-elf-g++" commandLinePattern="${COMMAND} ${FLAGS} ${OUTPUT_FLAG} ${OUTPUT_PREFIX}${OUTPUT} -Wl,--start-group ${INPUTS} -Wl,--end-group -Wl,romdisk" errorParsers="org.eclipse.cdt.core.GLDErrorParser" id="cdt.managedbuild.tool.gnu.cross.cpp.linker.1339686041" name="Dreamcast G++ Linker" superClass="cdt.managedbuild.tool.gnu.cross.cpp.linker">
+							<tool command="${GCC_BASE}/sh-elf/bin/sh-elf-g++" commandLinePattern="${COMMAND} ${FLAGS} ${OUTPUT_FLAG} ${OUTPUT_PREFIX}${OUTPUT} ${INPUTS} -Wl,--start-group -lkallisti -lc -lgcc -Wl,--end-group -Wl,romdisk" errorParsers="org.eclipse.cdt.core.GLDErrorParser" id="cdt.managedbuild.tool.gnu.cross.cpp.linker.1339686041" name="Dreamcast G++ Linker" superClass="cdt.managedbuild.tool.gnu.cross.cpp.linker">
 								<option id="gnu.cpp.link.option.paths.1383260796" name="Library search path (-L)" superClass="gnu.cpp.link.option.paths" valueType="libPaths">
 									<listOptionValue builtIn="false" value="${KOS_BASE}/lib/dreamcast"/>
 									<listOptionValue builtIn="false" value="${KOS_BASE}/addons/lib/dreamcast"/>
 								</option>
-								<option id="gnu.cpp.link.option.libs.1854895252" name="Libraries (-l)" superClass="gnu.cpp.link.option.libs" valueType="libs">
-									<listOptionValue builtIn="false" value="c"/>
-									<listOptionValue builtIn="false" value="gcc"/>
-									<listOptionValue builtIn="false" value="kallisti"/>
-								</option>
+								<option id="gnu.cpp.link.option.libs.1854895252" name="Libraries (-l)" superClass="gnu.cpp.link.option.libs"/>
 								<option id="gnu.cpp.link.option.nodeflibs.1943198990" name="Do not use default libraries (-nodefaultlibs)" superClass="gnu.cpp.link.option.nodeflibs" value="true" valueType="boolean"/>
-								<option id="gnu.cpp.link.option.flags.1653391929" name="Linker flags" superClass="gnu.cpp.link.option.flags" value="-Wl,-T${KOS_BASE}/utils/ldscripts/shlelf.xc -ml -m4-single-only -Wl,-Ttext=0x8c010000 -Wl,--gc-sections -v" valueType="string"/>
+								<option id="gnu.cpp.link.option.flags.1653391929" name="Linker flags" superClass="gnu.cpp.link.option.flags" value="-Wl,--gc-sections -Wl,-T${KOS_BASE}/utils/ldscripts/shlelf.xc -ml -m4-single-only -Wl,-Ttext=0x8c010000" valueType="string"/>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.linker.input.63568963" superClass="cdt.managedbuild.tool.gnu.cpp.linker.input">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
 									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
