@@ -179,7 +179,7 @@ public class DreamdevWizardPage extends WizardPage
 	
 	private void skipCell(Composite container)
 	{
-		Label emptyLabel = new Label(container, SWT.NULL);
+		new Label(container, SWT.NULL);
 	}
 
 	private String handleDirectoryBrowse() 

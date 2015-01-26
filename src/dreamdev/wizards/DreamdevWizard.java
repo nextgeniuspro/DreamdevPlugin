@@ -154,22 +154,6 @@ public class DreamdevWizard extends Wizard implements INewWizard
 		{
 		}
 		monitor.worked(1);
-		monitor.setTaskName("Opening file for editing...");
-		getShell().getDisplay().asyncExec(new Runnable() 
-		{
-			public void run() 
-			{
-				IWorkbenchPage page = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
-				/*try 
-				{
-					IDE.openEditor(page, "", true);
-				}
-				catch (PartInitException e) 
-				{
-				}*/
-			}
-		});
-		monitor.worked(1);
 	}
 	
 	private String readTextFile(String path, Charset encoding) throws IOException 
@@ -227,12 +211,6 @@ public class DreamdevWizard extends Wizard implements INewWizard
 		}
 		
 		return resourceStream;
-	}
-
-	private void throwCoreException(String message) throws CoreException 
-	{
-		IStatus status = new Status(IStatus.ERROR, "dreamdev", IStatus.OK, message, null);
-		throw new CoreException(status);
 	}
 
 	public void init(IWorkbench workbench, IStructuredSelection selection) 
